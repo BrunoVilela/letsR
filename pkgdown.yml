@@ -1,0 +1,9 @@
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles: {}
+last_built: 2023-11-14T20:30Z
+urls:
+  reference: http://brunovilela.github.io/letsR/reference
+  article: http://brunovilela.github.io/letsR/articles
+
