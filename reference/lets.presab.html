@@ -82,25 +82,25 @@ the object as BINOMIAL/binomial or SCINAME/sciname.</p></dd>
 
 
 <dt id="arg-xmn">xmn<a class="anchor" aria-label="anchor" href="#arg-xmn"></a></dt>
-<dd><p>Minimun longitude used to construct the grid in which the matrix
+<dd><p>Minimum longitude used to construct the grid in which the matrix
 will be based (i.e. the [gridded] geographic domain of interest).
 If NULL, limits will be calculated based on the limits of the shapes object.</p></dd>
 
 
 <dt id="arg-xmx">xmx<a class="anchor" aria-label="anchor" href="#arg-xmx"></a></dt>
-<dd><p>Maximun longitude used to construct the grid in which the matrix
+<dd><p>Maximum longitude used to construct the grid in which the matrix
 will be based (i.e. the [gridded] geographic domain of interest).
 If NULL, limits will be calculated based on the limits of the shapes object.</p></dd>
 
 
 <dt id="arg-ymn">ymn<a class="anchor" aria-label="anchor" href="#arg-ymn"></a></dt>
-<dd><p>Minimun latitude used to construct the grid in which the matrix
+<dd><p>Minimum latitude used to construct the grid in which the matrix
 will be based (i.e. the [gridded] geographic domain of interest).
 If NULL, limits will be calculated based on the limits of the shapes object.</p></dd>
 
 
 <dt id="arg-ymx">ymx<a class="anchor" aria-label="anchor" href="#arg-ymx"></a></dt>
-<dd><p>Maximun latitude used to construct the grid in which the matrix
+<dd><p>Maximum latitude used to construct the grid in which the matrix
 will be based (i.e. the [gridded] geographic domain of interest).
 If NULL, limits will be calculated based on the limits of the shapes object.</p></dd>
 
@@ -177,13 +177,13 @@ progress will be shown.</p></dd>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The function creates the presence-absence matrix based on a raster
+    <p>This function creates the presence-absence matrix based on a raster
  object. Depending on the cell size, extension used and number of species it
  may require a lot of memory, and may take some time to process it. Thus,
  during the process, if <code>count</code> argument is set <code>TRUE</code>, a counting
- window will open so you can see the progress (i.e. in what polygon/shapefile
- the function is working). Note that the number of polygons is not the same
- as the number of species that you have (i.e. a species may have more than
+ window will open to display the progress (i.e. the polygon/shapefile
+ that the function is working on). Note that the number of polygons is not the same
+ as the number of species (i.e. a species may have more than
  one polygon/shapefiles).</p>
     </div>
     <div class="section level2">
@@ -200,7 +200,7 @@ progress will be shown.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="co"># Spatial distribution polygons of south american frogs</span></span></span>
+<span class="r-in"><span><span class="co"># Spatial distribution polygons of South American frogs</span></span></span>
 <span class="r-in"><span><span class="co"># of genus Phyllomedusa.</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Phyllomedusa</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">PAM</span> <span class="op">&lt;-</span> <span class="fu">lets.presab</span><span class="op">(</span><span class="va">Phyllomedusa</span><span class="op">)</span></span></span>
@@ -208,7 +208,7 @@ progress will be shown.</p></dd>
 <span class="r-in"><span><span class="co"># Species richness map</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">PAM</span>, xlab <span class="op">=</span> <span class="st">"Longitude"</span>, ylab <span class="op">=</span> <span class="st">"Latitude"</span>,</span></span>
 <span class="r-in"><span>     main <span class="op">=</span> <span class="st">"Phyllomedusa species richness"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="co"># Map of the specific species</span></span></span>
+<span class="r-in"><span><span class="co"># Map of individual species</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">PAM</span>, name <span class="op">=</span> <span class="st">"Phyllomedusa nordestina"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
