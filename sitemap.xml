@@ -2,6 +2,7 @@
 <url><loc>https://brunovilela.github.io/letsR/404.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/articles/A-guide-to-transform-species-distributions-into-a-presence-absence-matrix-based.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/articles/Adding-variables-to-a-presenceabsence-object.html</loc></url>
+<url><loc>https://brunovilela.github.io/letsR/articles/Mapping-species-richness-in-environmental-space.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/articles/cropping-and-subseting-your-presence-absence-matrix.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/articles/index.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/articles/mapping-species-traits.html</loc></url>
@@ -20,13 +21,16 @@
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.classvar.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.correl.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.distmat.html</loc></url>
+<url><loc>https://brunovilela.github.io/letsR/reference/lets.envpam.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.field.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.gridirizer.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.iucncont.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.load.html</loc></url>
+<url><loc>https://brunovilela.github.io/letsR/reference/lets.maplizer.env.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.maplizer.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.midpoint.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.overlap.html</loc></url>
+<url><loc>https://brunovilela.github.io/letsR/reference/lets.plot.envpam.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.presab.birds.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.presab.grid.html</loc></url>
 <url><loc>https://brunovilela.github.io/letsR/reference/lets.presab.grid.points.html</loc></url>

@@ -5,10 +5,11 @@ articles:
   A-guide-to-transform-species-distributions-into-a-presence-absence-matrix-based: A-guide-to-transform-species-distributions-into-a-presence-absence-matrix-based.html
   Adding-variables-to-a-presenceabsence-object: Adding-variables-to-a-presenceabsence-object.html
   cropping-and-subseting-your-presence-absence-matrix: cropping-and-subseting-your-presence-absence-matrix.html
+  Mapping-species-richness-in-environmental-space: Mapping-species-richness-in-environmental-space.html
   mapping-species-traits: mapping-species-traits.html
   save-load-presenceabsence: save-load-presenceabsence.html
   species-level-macroecological-analysis: species-level-macroecological-analysis.html
-last_built: 2025-07-03T14:15Z
+last_built: 2025-07-08T21:35Z
 urls:
   reference: https://brunovilela.github.io/letsR/reference
   article: https://brunovilela.github.io/letsR/articles
