@@ -226,6 +226,117 @@ enables users to:<br>
 - Perform niche-based or trait-environment studies.</p>
 <p>For advanced analyses, the resulting matrices and rasters can be used
 in statistical models or overlaid with environmental constraints.</p>
+</div>
+<div class="section level2">
+<h2 id="describing-environmentalgeographical-structure">Describing environmental–geographical structure<a class="anchor" aria-label="anchor" href="#describing-environmentalgeographical-structure"></a>
+</h2>
+<p>The object <code>res</code> links geographic and environmental
+spaces. We can quantify that structure using
+<code><a href="../reference/lets.envcells.html">lets.envcells()</a></code>, which returns per–environmental-cell
+descriptors such as frequency (how many geographic cells map to the same
+environmental bin), geographic isolation among those cells, distances to
+environmental midpoints (negated so larger values imply higher
+“centrality”), and distances to environmental borders.</p>
+</div>
+<div class="section level2">
+<h2 id="summarize-descriptors-per-environmental-cell">Summarize descriptors per environmental cell<a class="anchor" aria-label="anchor" href="#summarize-descriptors-per-environmental-cell"></a>
+</h2>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.envcells.html">lets.envcells</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span>  <span class="co"># perc controls the robust border metric</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Cell_env Frequency Isolation (Min.) Isolation (1st Qu.) Isolation (Median)</span></span>
+<span><span class="co">#&gt; 3        1         0               NA                  NA                 NA</span></span>
+<span><span class="co">#&gt; 4        2         0               NA                  NA                 NA</span></span>
+<span><span class="co">#&gt; 5        3         0               NA                  NA                 NA</span></span>
+<span><span class="co">#&gt; 6        4         0               NA                  NA                 NA</span></span>
+<span><span class="co">#&gt; 7        5         0               NA                  NA                 NA</span></span>
+<span><span class="co">#&gt; 8        6         0               NA                  NA                 NA</span></span>
+<span><span class="co">#&gt;   Isolation (Mean) Isolation (3rd Qu.) Isolation (Max.)</span></span>
+<span><span class="co">#&gt; 3               NA                  NA               NA</span></span>
+<span><span class="co">#&gt; 4               NA                  NA               NA</span></span>
+<span><span class="co">#&gt; 5               NA                  NA               NA</span></span>
+<span><span class="co">#&gt; 6               NA                  NA               NA</span></span>
+<span><span class="co">#&gt; 7               NA                  NA               NA</span></span>
+<span><span class="co">#&gt; 8               NA                  NA               NA</span></span>
+<span><span class="co">#&gt;   Weighted Mean Distance to midpoint Mean Distance to midpoint</span></span>
+<span><span class="co">#&gt; 3                          -3.730908                 -3.457246</span></span>
+<span><span class="co">#&gt; 4                          -3.646836                 -3.382386</span></span>
+<span><span class="co">#&gt; 5                          -3.564523                 -3.309862</span></span>
+<span><span class="co">#&gt; 6                          -3.484092                 -3.239832</span></span>
+<span><span class="co">#&gt; 7                          -3.405677                 -3.172460</span></span>
+<span><span class="co">#&gt; 8                          -3.329421                 -3.107918</span></span>
+<span><span class="co">#&gt;   Minimum Zero Distance Minimum 10% Zero Distance Distance to MCP border</span></span>
+<span><span class="co">#&gt; 3                     0                 0.9362266                      0</span></span>
+<span><span class="co">#&gt; 4                     0                 0.8700119                      0</span></span>
+<span><span class="co">#&gt; 5                     0                 0.8136812                      0</span></span>
+<span><span class="co">#&gt; 6                     0                 0.7676179                      0</span></span>
+<span><span class="co">#&gt; 7                     0                 0.7323872                      0</span></span>
+<span><span class="co">#&gt; 8                     0                 0.7068043                      0</span></span>
+<span><span class="co">#&gt;   Frequency Weighted Distance</span></span>
+<span><span class="co">#&gt; 3                    3.800462</span></span>
+<span><span class="co">#&gt; 4                    3.718461</span></span>
+<span><span class="co">#&gt; 5                    3.638213</span></span>
+<span><span class="co">#&gt; 6                    3.559825</span></span>
+<span><span class="co">#&gt; 7                    3.483411</span></span>
+<span><span class="co">#&gt; 8                    3.409092</span></span></code></pre></div>
+<p>Key columns are:</p>
+<p>Frequency: geographic aggregation into the same environmental
+cell.</p>
+<p>Isolation: summary of pairwise geographic distances among geographic
+cells mapped to that environmental bin.</p>
+<p>Weighted Mean Distance to midpoint and Mean Distance to midpoint:
+negated distances in standardized environmental space (larger = more
+central).</p>
+<p>Minimum Zero Distance, Minimum 10% Zero Distance (here 20% because
+perc = 0.2), and Distance to MCP border: three proxies for environmental
+“edge”.</p>
+<p>Mapping descriptor layers</p>
+<p>We can plot every descriptor over the environmental raster grid.
+Optionally, set ras = TRUE to also retrieve the layers as a named list
+of SpatRaster objects for further use.</p>
+</div>
+<div class="section level2">
+<h2 id="plot-the-descriptors">Plot the descriptors<a class="anchor" aria-label="anchor" href="#plot-the-descriptors"></a>
+</h2>
+<p>Plot all descriptors (environmental grid)</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/lets.plot.envcells.html">lets.plot.envcells</a></span><span class="op">(</span><span class="va">res</span>, <span class="va">out</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-11-1.png" width="768" style="display: block; margin: auto;"></p>
+<p>Optionally retrieve rasters for further analysis:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ras_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.plot.envcells.html">lets.plot.envcells</a></span><span class="op">(</span><span class="va">res</span>, <span class="va">out</span>, ras <span class="op">=</span> <span class="cn">TRUE</span>, plot_ras <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="diagnosing-centrality-vs--richness-optional">Diagnosing centrality vs. richness (optional)<a class="anchor" aria-label="anchor" href="#diagnosing-centrality-vs--richness-optional"></a>
+</h2>
+<p>As a simple diagnostic, we may examine whether environmental
+centrality (negated distance to the weighted midpoint) co-varies with
+environmental richness:</p>
+</div>
+<div class="section level2">
+<h2 id="extract-a-centrality-proxy-and-richness-first-compute-richness-from-env-pam">Extract a centrality proxy and richness (first compute richness from
+env PAM)<a class="anchor" aria-label="anchor" href="#extract-a-centrality-proxy-and-richness-first-compute-richness-from-env-pam"></a>
+</h2>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">centrality</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">[[</span><span class="st">"Weighted Mean Distance to midpoint"</span><span class="op">]</span><span class="op">]</span>   <span class="co"># larger = more central</span></span>
+<span><span class="va">rich_env</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rowSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">Presence_and_Absence_Matrix_env</span><span class="op">[</span>, <span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Remove zero-richness cells</span></span>
+<span><span class="va">keep</span> <span class="op">&lt;-</span> <span class="va">rich_env</span> <span class="op">&gt;</span> <span class="fl">0</span></span>
+<span><span class="va">centrality</span> <span class="op">&lt;-</span> <span class="va">centrality</span><span class="op">[</span><span class="va">keep</span><span class="op">]</span></span>
+<span><span class="va">rich_env</span>   <span class="op">&lt;-</span> <span class="va">rich_env</span><span class="op">[</span><span class="va">keep</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Plot relationship</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">centrality</span>, <span class="va">rich_env</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"Centrality (negated distance to weighted midpoint)"</span>,</span>
+<span>     ylab <span class="op">=</span> <span class="st">"Species richness"</span>,</span>
+<span>     pch  <span class="op">=</span> <span class="fl">19</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">rich_env</span> <span class="op">~</span> <span class="va">centrality</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-13-1.png" width="768" style="display: block; margin: auto;"></p>
+<p>These descriptors often reveal whether species accumulate in central
+portions of environmental space or cluster near edges (where
+zero-richness neighbors are close), thereby sharpening inference about
+ecological filtering and range limits.</p>
 <div class="section level3">
 <h3 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h3>
