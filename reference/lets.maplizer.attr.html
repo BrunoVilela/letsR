@@ -29,6 +29,8 @@ surface and an optional raster for visualization."></head><body>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/A-guide-to-transform-species-distributions-into-a-presence-absence-matrix-based.html">A guide to transform species distributions into a presence absence matrix based on a user-defined grid in R</a></li>
     <li><a class="dropdown-item" href="../articles/Adding-variables-to-a-presenceabsence-object.html">Adding variables to a PresenceAbsence object</a></li>
     <li><a class="dropdown-item" href="../articles/cropping-and-subseting-your-presence-absence-matrix.html">Cropping and subseting your presence absence matrix</a></li>
+    <li><a class="dropdown-item" href="../articles/Cross-mapping-biodiversity-metrics-Phyllomedusa.html">Cross-mapping biodiversity metrics across spaces</a></li>
+    <li><a class="dropdown-item" href="../articles/Mapping-species-richness-in-attribute-space.html">Mapping species richness in attribute space</a></li>
     <li><a class="dropdown-item" href="../articles/Mapping-species-richness-in-environmental-space.html">Mapping species richness in environmental space</a></li>
     <li><a class="dropdown-item" href="../articles/mapping-species-traits.html">Mapping species traits: community level analysis</a></li>
     <li><a class="dropdown-item" href="../articles/save-load-presenceabsence.html">How to save and load a PresenceAbsence object</a></li>
@@ -60,7 +62,7 @@ surface and an optional raster for visualization.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">lets.maplizer.attr</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">z</span>, func <span class="op">=</span> <span class="va">mean</span>, ras <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">lets.maplizer.attr</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">z</span>, func <span class="op">=</span> <span class="va">mean</span>, ras <span class="op">=</span> <span class="cn">TRUE</span>, weighted <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -91,6 +93,12 @@ names must match the species columns in the attribute-space PAM within <code>x</
 <dt id="arg-ras">ras<a class="anchor" aria-label="anchor" href="#arg-ras"></a></dt>
 <dd><p>Logical; if <code>TRUE</code>, include the attribute map as a
 <a href="https://rspatial.github.io/terra/reference/SpatRaster-class.html" class="external-link">SpatRaster</a> in the output.</p></dd>
+
+
+<dt id="arg-weighted">weighted<a class="anchor" aria-label="anchor" href="#arg-weighted"></a></dt>
+<dd><p>If TRUE, argument func is ignored, and weighted mean is
+calculated. Weights are attributed to each species according to 1/N cells
+that the species occur.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -132,13 +140,12 @@ Cells with no species remain as <code>NA</code>.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Build attribute-space PAM</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="lets.attrpam.html">lets.attrpam</a></span><span class="op">(</span><span class="va">df</span>, n_bins <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="lets.plot.attrpam.html">lets.plot.attrpam</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Map species-level attribute (here, trait_b) by cell using the mean</span></span></span>
-<span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">lets.maplizer.attr</span><span class="op">(</span><span class="va">x</span>, y <span class="op">=</span> <span class="va">trait_b</span>, z <span class="op">=</span> <span class="va">Species</span>, func <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">lets.maplizer.attr</span><span class="op">(</span><span class="va">x</span>, y <span class="op">=</span> <span class="va">trait_b</span>, z <span class="op">=</span> <span class="va">Species</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plot attribute raster</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">Attr_Raster</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="lets.plot.attrpam.html">lets.plot.attrpam</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
