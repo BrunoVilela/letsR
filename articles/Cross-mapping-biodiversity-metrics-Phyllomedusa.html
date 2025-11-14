@@ -93,14 +93,7 @@ and</li>
 into <strong>geographic</strong> and <strong>attribute</strong> spaces
 via the package connectors.</li>
 </ol>
-</div>
-<div class="section level2">
-<h2 id="note-i-recommend-using-the-latest-development-version-v5-1-of-the-letsr-package-from-github-as-the-cran-release-v5-0-does-not-yet-include-some-of-the-example-data-used-in-this-tutorial-">
-<em>Note: I recommend using the latest development version (≥ v5.1)
-of the <code>letsR</code> package from <a href="https://github.com/macroecology/letsR" class="external-link">GitHub</a>, as the CRAN
-release (v5.0) does not yet include some of the example data used in
-this tutorial.</em><a class="anchor" aria-label="anchor" href="#note-i-recommend-using-the-latest-development-version-v5-1-of-the-letsr-package-from-github-as-the-cran-release-v5-0-does-not-yet-include-some-of-the-example-data-used-in-this-tutorial-"></a>
-</h2>
+<hr>
 </div>
 <div class="section level2">
 <h2 id="data-and-environmental-pam-example-with-phyllomedusa">Data and environmental PAM (example with Phyllomedusa)<a class="anchor" aria-label="anchor" href="#data-and-environmental-pam-example-with-phyllomedusa"></a>
@@ -126,7 +119,7 @@ previous articles.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">envs</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Temperature"</span>, <span class="st">"Precipitation"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Environmental-space PAM (envPAM)</span></span>
-<span><span class="va">env_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.envpam.html">lets.envpam</a></span><span class="op">(</span><span class="va">PAM</span>, <span class="va">envs</span>, n_bins <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
+<span><span class="va">env_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.envpam.html">lets.envpam</a></span><span class="op">(</span><span class="va">PAM</span>, <span class="va">envs</span>, n_bins <span class="op">=</span> <span class="fl">30</span>, remove.cells <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Plot</span></span>
 <span><span class="fu"><a href="../reference/lets.plot.envpam.html">lets.plot.envpam</a></span><span class="op">(</span><span class="va">env_obj</span>, world <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
@@ -240,7 +233,7 @@ real traits if available.)</p>
 <span>                       trait_b  <span class="op">=</span> <span class="va">trait_b</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Attribute-space PAM (AttrPAM)</span></span>
-<span><span class="va">attr_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.attrpam.html">lets.attrpam</a></span><span class="op">(</span><span class="va">attr_df</span>, n_bins <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">attr_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.attrpam.html">lets.attrpam</a></span><span class="op">(</span><span class="va">attr_df</span>, n_bins <span class="op">=</span> <span class="fl">5</span>, remove.cells <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Richness map in attribute space</span></span>
 <span><span class="fu"><a href="../reference/lets.plot.attrpam.html">lets.plot.attrpam</a></span><span class="op">(</span><span class="va">attr_obj</span><span class="op">)</span></span></code></pre></div>

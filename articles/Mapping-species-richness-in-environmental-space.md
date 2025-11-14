@@ -17,10 +17,8 @@ To start this test we can load our example datasets of `Phyllomedusa`
 frog species occurrences and two environmental layers: temperature and
 precipitation.
 
-*Note: I recommend using the latest development version (≥ v5.1) of the
-`letsR` package from [GitHub](https://github.com/macroecology/letsR), as
-the CRAN release (v5.0) does not yet include some of the example data
-used in this tutorial.*
+*Note: I recommend to use the latest version of the `letsR` package on
+[GitHub](https://github.com/macroecology/letsR)*
 
 ``` r
 # Load the package
@@ -67,7 +65,7 @@ create the presence absence matrix in the environmental space using the
 
 ``` r
 # Transform PAM into environmental space
-res <- lets.envpam(pam, envs)
+res <- lets.envpam(pam, envs, remove.cells = FALSE)
 ```
 
 The resulting object `res` contains:

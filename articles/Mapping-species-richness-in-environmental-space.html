@@ -89,10 +89,8 @@ binning species occurrences according to environmental variables.</p>
 <p>To start this test we can load our example datasets of
 <code>Phyllomedusa</code> frog species occurrences and two environmental
 layers: temperature and precipitation.</p>
-<p><em>Note: I recommend using the latest development version (≥ v5.1)
-of the <code>letsR</code> package from <a href="https://github.com/macroecology/letsR" class="external-link">GitHub</a>, as the CRAN
-release (v5.0) does not yet include some of the example data used in
-this tutorial.</em></p>
+<p><em>Note: I recommend to use the latest version of the
+<code>letsR</code> package on <a href="https://github.com/macroecology/letsR" class="external-link">GitHub</a></em></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12401" class="external-link">letsR</a></span><span class="op">)</span></span>
@@ -132,7 +130,7 @@ variables, so set the <code>onlyvar</code> argument
 environmental space using the <code>lets.envpam</code>function.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Transform PAM into environmental space</span></span>
-<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.envpam.html">lets.envpam</a></span><span class="op">(</span><span class="va">pam</span>, <span class="va">envs</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.envpam.html">lets.envpam</a></span><span class="op">(</span><span class="va">pam</span>, <span class="va">envs</span>, remove.cells <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>The resulting object <code>res</code> contains:</p>
 <ul>
 <li>
