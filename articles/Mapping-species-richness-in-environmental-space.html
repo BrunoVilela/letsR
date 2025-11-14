@@ -89,8 +89,10 @@ binning species occurrences according to environmental variables.</p>
 <p>To start this test we can load our example datasets of
 <code>Phyllomedusa</code> frog species occurrences and two environmental
 layers: temperature and precipitation.</p>
-<p><em>Note: I recommend to use the latest version of the
-<code>letsR</code> package on <a href="https://github.com/macroecology/letsR" class="external-link">GitHub</a></em></p>
+<p><em>Note: I recommend using the latest development version (≥ v5.1)
+of the <code>letsR</code> package from <a href="https://github.com/macroecology/letsR" class="external-link">GitHub</a>, as the CRAN
+release (v5.0) does not yet include some of the example data used in
+this tutorial.</em></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12401" class="external-link">letsR</a></span><span class="op">)</span></span>
@@ -185,7 +187,7 @@ richness plot in both environmental and geographic space.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lets.plot.envpam.html">lets.plot.envpam</a></span><span class="op">(</span><span class="va">res</span>,</span>
 <span>            world <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-6-1.png" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
 <p>This plot shows species richness both in geographic (left) and
 environmental (right) space.</p>
 </div>
@@ -195,7 +197,7 @@ environmental (right) space.</p>
 <p>To visualize where a specific species occurs in both spaces:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lets.plot.envpam.html">lets.plot.envpam</a></span><span class="op">(</span><span class="va">res</span>, species <span class="op">=</span> <span class="st">"Phyllomedusa atelopoides"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-7-1.png" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="mapping-traits-in-environmental-space">Mapping traits in environmental space<a class="anchor" aria-label="anchor" href="#mapping-traits-in-environmental-space"></a>
@@ -219,7 +221,7 @@ that you cannot plot individual species or cells in this case).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plotting trait maps</span></span>
 <span><span class="fu"><a href="../reference/lets.plot.envpam.html">lets.plot.envpam</a></span><span class="op">(</span><span class="va">res_map</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-9-1.png" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-9-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
 <p>In sum, the <code><a href="../reference/lets.envpam.html">lets.envpam()</a></code> function offers a simple yet
 powerful way to explore biodiversity patterns in environmental space. It
 enables users to:<br>
@@ -302,7 +304,7 @@ of SpatRaster objects for further use.</p>
 <p>Plot all descriptors (environmental grid)</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lets.plot.envcells.html">lets.plot.envcells</a></span><span class="op">(</span><span class="va">res</span>, <span class="va">out</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-11-1.png" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
 <p>Optionally retrieve rasters for further analysis:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ras_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.plot.envcells.html">lets.plot.envcells</a></span><span class="op">(</span><span class="va">res</span>, <span class="va">out</span>, ras <span class="op">=</span> <span class="cn">TRUE</span>, plot_ras <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
@@ -329,7 +331,7 @@ environmental richness.</p>
 <span>     ylab <span class="op">=</span> <span class="st">"Species richness"</span>,</span>
 <span>     pch  <span class="op">=</span> <span class="fl">19</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">rich_env</span> <span class="op">~</span> <span class="va">centrality</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-13-1.png" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-13-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
 <p>These descriptors often reveal whether species accumulate in central
 portions of environmental space or cluster near edges (where
 zero-richness neighbors are close), thereby sharpening inference about
@@ -355,7 +357,7 @@ Evolution</em>, 6(10), 1229–1234.</li>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

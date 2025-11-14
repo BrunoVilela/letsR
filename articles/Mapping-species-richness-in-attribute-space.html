@@ -116,6 +116,8 @@ traits:</p>
 <span></span>
 <span><span class="co"># Build the attribute-space PAM</span></span>
 <span><span class="va">attr_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.attrpam.html">lets.attrpam</a></span><span class="op">(</span><span class="va">df</span>, n_bins <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></code></pre></div>
+<p>Note that trait data are rarely complete, and missing values can bias
+the resulting attribute space.</p>
 </div>
 <div class="section level2">
 <h2 id="visualizing-richness-in-attribute-space">Visualizing richness in attribute space<a class="anchor" aria-label="anchor" href="#visualizing-richness-in-attribute-space"></a>
@@ -124,7 +126,7 @@ traits:</p>
 surface across the bivariate trait space.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lets.plot.attrpam.html">lets.plot.attrpam</a></span><span class="op">(</span><span class="va">attr_obj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-attribute-space_files/figure-html/unnamed-chunk-3-1.png" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-attribute-space_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
 <p>Each cell represents a unique combination of traits (binned values of
 <code>trait_a</code> and <code>trait_b</code>), and the color intensity
 indicates the number of species falling within that bin.</p>
@@ -163,7 +165,7 @@ centrality, isolation, and border proximity.</p>
 <code><a href="../reference/lets.plot.attrcells.html">lets.plot.attrcells()</a></code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lets.plot.attrcells.html">lets.plot.attrcells</a></span><span class="op">(</span><span class="va">attr_obj</span>, <span class="va">attr_desc</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-attribute-space_files/figure-html/unnamed-chunk-5-1.png" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-attribute-space_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
 <p>Each panel represents a different descriptor (e.g., distance to
 midpoint, distance to border, weighted isolation) mapped across the
 trait space.</p>
@@ -220,7 +222,7 @@ Evolution, 6(10), 1229–1234.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
