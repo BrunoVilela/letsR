@@ -130,7 +130,7 @@ variables, so set the <code>onlyvar</code> argument
 environmental space using the <code>lets.envpam</code>function.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Transform PAM into environmental space</span></span>
-<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.envpam.html">lets.envpam</a></span><span class="op">(</span><span class="va">pam</span>, <span class="va">envs</span>, remove.cells <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.envpam.html">lets.envpam</a></span><span class="op">(</span><span class="va">pam</span>, <span class="va">envs</span><span class="op">)</span></span></code></pre></div>
 <p>The resulting object <code>res</code> contains:</p>
 <ul>
 <li>
@@ -156,18 +156,18 @@ the transfer of information between environmental and geographic spaces
 in both directions.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res</span><span class="op">$</span><span class="va">Presence_and_Absence_Matrix_env</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
-<span><span class="co">#&gt;      Cell_env Temperature Precipitation Phyllomedusa araguari</span></span>
-<span><span class="co">#&gt; [1,]        1    1.135184       6268.23                     0</span></span>
-<span><span class="co">#&gt; [2,]        2    2.039945       6268.23                     0</span></span>
-<span><span class="co">#&gt; [3,]        3    2.944705       6268.23                     0</span></span>
-<span><span class="co">#&gt; [4,]        4    3.849466       6268.23                     0</span></span>
-<span><span class="co">#&gt; [5,]        5    4.754226       6268.23                     0</span></span>
-<span><span class="co">#&gt;      Phyllomedusa atelopoides</span></span>
-<span><span class="co">#&gt; [1,]                        0</span></span>
-<span><span class="co">#&gt; [2,]                        0</span></span>
-<span><span class="co">#&gt; [3,]                        0</span></span>
-<span><span class="co">#&gt; [4,]                        0</span></span>
-<span><span class="co">#&gt; [5,]                        0</span></span></code></pre></div>
+<span><span class="co">#&gt;     Cell_env Temperature Precipitation Phyllomedusa araguari</span></span>
+<span><span class="co">#&gt; 269      269    26.46848      4568.828                     0</span></span>
+<span><span class="co">#&gt; 387      387    24.65896      3719.128                     0</span></span>
+<span><span class="co">#&gt; 389      389    26.46848      3719.128                     0</span></span>
+<span><span class="co">#&gt; 417      417    24.65896      3506.702                     0</span></span>
+<span><span class="co">#&gt; 418      418    25.56372      3506.702                     0</span></span>
+<span><span class="co">#&gt;     Phyllomedusa atelopoides</span></span>
+<span><span class="co">#&gt; 269                        0</span></span>
+<span><span class="co">#&gt; 387                        0</span></span>
+<span><span class="co">#&gt; 389                        0</span></span>
+<span><span class="co">#&gt; 417                        0</span></span>
+<span><span class="co">#&gt; 418                        0</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res</span><span class="op">$</span><span class="va">Presence_and_Absence_Matrix_geo</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
 <span><span class="co">#&gt;      Cell_env Cell_geo Longitude(x) Latitude(y) Phyllomedusa araguari</span></span>
@@ -185,7 +185,7 @@ richness plot in both environmental and geographic space.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lets.plot.envpam.html">lets.plot.envpam</a></span><span class="op">(</span><span class="va">res</span>,</span>
 <span>            world <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="768" style="display: block; margin: auto;"></p>
 <p>This plot shows species richness both in geographic (left) and
 environmental (right) space.</p>
 </div>
@@ -195,7 +195,7 @@ environmental (right) space.</p>
 <p>To visualize where a specific species occurs in both spaces:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lets.plot.envpam.html">lets.plot.envpam</a></span><span class="op">(</span><span class="va">res</span>, species <span class="op">=</span> <span class="st">"Phyllomedusa atelopoides"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" alt="" width="768" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="mapping-traits-in-environmental-space">Mapping traits in environmental space<a class="anchor" aria-label="anchor" href="#mapping-traits-in-environmental-space"></a>
@@ -219,7 +219,7 @@ that you cannot plot individual species or cells in this case).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plotting trait maps</span></span>
 <span><span class="fu"><a href="../reference/lets.plot.envpam.html">lets.plot.envpam</a></span><span class="op">(</span><span class="va">res_map</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-9-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-9-1.png" class="r-plt" alt="" width="768" style="display: block; margin: auto;"></p>
 <p>In sum, the <code><a href="../reference/lets.envpam.html">lets.envpam()</a></code> function offers a simple yet
 powerful way to explore biodiversity patterns in environmental space. It
 enables users to:<br>
@@ -246,41 +246,41 @@ environmental midpoints (negated so larger values imply higher
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.envcells.html">lets.envcells</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span>  <span class="co"># perc controls the robust border metric</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   Cell_env Frequency Isolation (Min.) Isolation (1st Qu.) Isolation (Median)</span></span>
-<span><span class="co">#&gt; 3        1         0               NA                  NA                 NA</span></span>
-<span><span class="co">#&gt; 4        2         0               NA                  NA                 NA</span></span>
-<span><span class="co">#&gt; 5        3         0               NA                  NA                 NA</span></span>
-<span><span class="co">#&gt; 6        4         0               NA                  NA                 NA</span></span>
-<span><span class="co">#&gt; 7        5         0               NA                  NA                 NA</span></span>
-<span><span class="co">#&gt; 8        6         0               NA                  NA                 NA</span></span>
-<span><span class="co">#&gt;   Isolation (Mean) Isolation (3rd Qu.) Isolation (Max.)</span></span>
-<span><span class="co">#&gt; 3               NA                  NA               NA</span></span>
-<span><span class="co">#&gt; 4               NA                  NA               NA</span></span>
-<span><span class="co">#&gt; 5               NA                  NA               NA</span></span>
-<span><span class="co">#&gt; 6               NA                  NA               NA</span></span>
-<span><span class="co">#&gt; 7               NA                  NA               NA</span></span>
-<span><span class="co">#&gt; 8               NA                  NA               NA</span></span>
-<span><span class="co">#&gt;   Weighted Mean Distance to midpoint Mean Distance to midpoint</span></span>
-<span><span class="co">#&gt; 3                          -3.730908                 -3.457246</span></span>
-<span><span class="co">#&gt; 4                          -3.646836                 -3.382386</span></span>
-<span><span class="co">#&gt; 5                          -3.564523                 -3.309862</span></span>
-<span><span class="co">#&gt; 6                          -3.484092                 -3.239832</span></span>
-<span><span class="co">#&gt; 7                          -3.405677                 -3.172460</span></span>
-<span><span class="co">#&gt; 8                          -3.329421                 -3.107918</span></span>
-<span><span class="co">#&gt;   Minimum Zero Distance Minimum 10% Zero Distance Distance to MCP border</span></span>
-<span><span class="co">#&gt; 3                     0                 0.9362266                      0</span></span>
-<span><span class="co">#&gt; 4                     0                 0.8700119                      0</span></span>
-<span><span class="co">#&gt; 5                     0                 0.8136812                      0</span></span>
-<span><span class="co">#&gt; 6                     0                 0.7676179                      0</span></span>
-<span><span class="co">#&gt; 7                     0                 0.7323872                      0</span></span>
-<span><span class="co">#&gt; 8                     0                 0.7068043                      0</span></span>
-<span><span class="co">#&gt;   Frequency Weighted Distance</span></span>
-<span><span class="co">#&gt; 3                    3.800462</span></span>
-<span><span class="co">#&gt; 4                    3.718461</span></span>
-<span><span class="co">#&gt; 5                    3.638213</span></span>
-<span><span class="co">#&gt; 6                    3.559825</span></span>
-<span><span class="co">#&gt; 7                    3.483411</span></span>
-<span><span class="co">#&gt; 8                    3.409092</span></span></code></pre></div>
+<span><span class="co">#&gt;     Cell_env Frequency Isolation (Min.) Isolation (1st Qu.) Isolation (Median)</span></span>
+<span><span class="co">#&gt; 269      269         1               NA                  NA                 NA</span></span>
+<span><span class="co">#&gt; 387      387         1               NA                  NA                 NA</span></span>
+<span><span class="co">#&gt; 389      389         1               NA                  NA                 NA</span></span>
+<span><span class="co">#&gt; 417      417         1               NA                  NA                 NA</span></span>
+<span><span class="co">#&gt; 418      418         1               NA                  NA                 NA</span></span>
+<span><span class="co">#&gt; 419      419         3         110575.8            110891.1           111206.5</span></span>
+<span><span class="co">#&gt;     Isolation (Mean) Isolation (3rd Qu.) Isolation (Max.)</span></span>
+<span><span class="co">#&gt; 269               NA                  NA               NA</span></span>
+<span><span class="co">#&gt; 387               NA                  NA               NA</span></span>
+<span><span class="co">#&gt; 389               NA                  NA               NA</span></span>
+<span><span class="co">#&gt; 417               NA                  NA               NA</span></span>
+<span><span class="co">#&gt; 418               NA                  NA               NA</span></span>
+<span><span class="co">#&gt; 419         126211.2            134028.9         156851.3</span></span>
+<span><span class="co">#&gt;     Weighted Mean Distance to midpoint Mean Distance to midpoint</span></span>
+<span><span class="co">#&gt; 269                          -3.262939                 -3.410333</span></span>
+<span><span class="co">#&gt; 387                          -2.245394                 -2.356311</span></span>
+<span><span class="co">#&gt; 389                          -2.326724                 -2.517317</span></span>
+<span><span class="co">#&gt; 417                          -2.005706                 -2.125599</span></span>
+<span><span class="co">#&gt; 418                          -2.038854                 -2.204236</span></span>
+<span><span class="co">#&gt; 419                          -2.096356                 -2.302793</span></span>
+<span><span class="co">#&gt;     Minimum Zero Distance Minimum 10% Zero Distance Distance to MCP border</span></span>
+<span><span class="co">#&gt; 269                    NA                        NA                      0</span></span>
+<span><span class="co">#&gt; 387                    NA                        NA                      0</span></span>
+<span><span class="co">#&gt; 389                    NA                        NA                      0</span></span>
+<span><span class="co">#&gt; 417                    NA                        NA                      0</span></span>
+<span><span class="co">#&gt; 418                    NA                        NA                      0</span></span>
+<span><span class="co">#&gt; 419                    NA                        NA                      0</span></span>
+<span><span class="co">#&gt;     Frequency Weighted Distance</span></span>
+<span><span class="co">#&gt; 269                    3.329758</span></span>
+<span><span class="co">#&gt; 387                    2.357255</span></span>
+<span><span class="co">#&gt; 389                    2.408900</span></span>
+<span><span class="co">#&gt; 417                    2.130913</span></span>
+<span><span class="co">#&gt; 418                    2.143140</span></span>
+<span><span class="co">#&gt; 419                    2.187567</span></span></code></pre></div>
 <p>Key columns are:</p>
 <p>Frequency: geographic aggregation into the same environmental
 cell.</p>
@@ -302,7 +302,7 @@ of SpatRaster objects for further use.</p>
 <p>Plot all descriptors (environmental grid)</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lets.plot.envcells.html">lets.plot.envcells</a></span><span class="op">(</span><span class="va">res</span>, <span class="va">out</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" alt="" width="768" style="display: block; margin: auto;"></p>
 <p>Optionally retrieve rasters for further analysis:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ras_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lets.plot.envcells.html">lets.plot.envcells</a></span><span class="op">(</span><span class="va">res</span>, <span class="va">out</span>, ras <span class="op">=</span> <span class="cn">TRUE</span>, plot_ras <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
@@ -329,7 +329,7 @@ environmental richness.</p>
 <span>     ylab <span class="op">=</span> <span class="st">"Species richness"</span>,</span>
 <span>     pch  <span class="op">=</span> <span class="fl">19</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">rich_env</span> <span class="op">~</span> <span class="va">centrality</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-13-1.png" class="r-plt" width="768" style="display: block; margin: auto;"></p>
+<p><img src="Mapping-species-richness-in-environmental-space_files/figure-html/unnamed-chunk-13-1.png" class="r-plt" alt="" width="768" style="display: block; margin: auto;"></p>
 <p>These descriptors often reveal whether species accumulate in central
 portions of environmental space or cluster near edges (where
 zero-richness neighbors are close), thereby sharpening inference about
