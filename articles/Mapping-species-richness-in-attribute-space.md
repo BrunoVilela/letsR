@@ -146,4 +146,5 @@ cells where that species occurs.
 
 Vilela, B. & Villalobos, F. (2015). letsR: a new R package for data
 handling and analysis in macroecology. Methods in Ecology and Evolution,
-6(10), 1229–1234.
+6(10), 1229–1234. \>\>\>\>\>\>\>
+5b39b12520d9f6fac84b5979f9ac6a0a3c75de13
