@@ -17,7 +17,7 @@ implementation.
 ## Usage
 
 ``` r
-lets.envcells(x, perc = 0.2)
+lets.envcells(x, perc = 0.2, remove.cells = FALSE)
 ```
 
 ## Arguments
@@ -43,6 +43,10 @@ lets.envcells(x, perc = 0.2)
 
   Numeric in (0,1\], the fraction used in the robust border metric (mean
   of the *n* smallest distances to zero-richness cells). Default = 0.2.
+
+- remove.cells:
+
+  Logical. If 'TRUE', remove empty cells from the results.
 
 ## Value
 

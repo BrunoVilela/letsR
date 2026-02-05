@@ -55,41 +55,41 @@ lets.plot.envpam(env_obj, world = TRUE)
 env_cells <- lets.envcells(env_obj, perc = 0.2)
 
 head(env_cells)
-#>     Cell_env Frequency Isolation (Min.) Isolation (1st Qu.) Isolation (Median)
-#> 269      269         1               NA                  NA                 NA
-#> 387      387         1               NA                  NA                 NA
-#> 389      389         1               NA                  NA                 NA
-#> 417      417         1               NA                  NA                 NA
-#> 418      418         1               NA                  NA                 NA
-#> 419      419         3         110575.8            110891.1           111206.5
-#>     Isolation (Mean) Isolation (3rd Qu.) Isolation (Max.)
-#> 269               NA                  NA               NA
-#> 387               NA                  NA               NA
-#> 389               NA                  NA               NA
-#> 417               NA                  NA               NA
-#> 418               NA                  NA               NA
-#> 419         126211.2            134028.9         156851.3
-#>     Weighted Mean Distance to midpoint Mean Distance to midpoint
-#> 269                          -3.262939                 -3.410333
-#> 387                          -2.245394                 -2.356311
-#> 389                          -2.326724                 -2.517317
-#> 417                          -2.005706                 -2.125599
-#> 418                          -2.038854                 -2.204236
-#> 419                          -2.096356                 -2.302793
-#>     Minimum Zero Distance Minimum 10% Zero Distance Distance to MCP border
-#> 269                    NA                        NA                      0
-#> 387                    NA                        NA                      0
-#> 389                    NA                        NA                      0
-#> 417                    NA                        NA                      0
-#> 418                    NA                        NA                      0
-#> 419                    NA                        NA                      0
-#>     Frequency Weighted Distance
-#> 269                    3.329758
-#> 387                    2.357255
-#> 389                    2.408900
-#> 417                    2.130913
-#> 418                    2.143140
-#> 419                    2.187567
+#>   Cell_env Frequency Isolation (Min.) Isolation (1st Qu.) Isolation (Median)
+#> 3        1         0               NA                  NA                 NA
+#> 4        2         0               NA                  NA                 NA
+#> 5        3         0               NA                  NA                 NA
+#> 6        4         0               NA                  NA                 NA
+#> 7        5         0               NA                  NA                 NA
+#> 8        6         0               NA                  NA                 NA
+#>   Isolation (Mean) Isolation (3rd Qu.) Isolation (Max.)
+#> 3               NA                  NA               NA
+#> 4               NA                  NA               NA
+#> 5               NA                  NA               NA
+#> 6               NA                  NA               NA
+#> 7               NA                  NA               NA
+#> 8               NA                  NA               NA
+#>   Weighted Mean Distance to midpoint Mean Distance to midpoint
+#> 3                          -3.730908                 -3.457246
+#> 4                          -3.646836                 -3.382386
+#> 5                          -3.564523                 -3.309862
+#> 6                          -3.484092                 -3.239832
+#> 7                          -3.405677                 -3.172460
+#> 8                          -3.329421                 -3.107918
+#>   Minimum Zero Distance Minimum 10% Zero Distance Distance to MCP border
+#> 3                     0                 0.9362266                      0
+#> 4                     0                 0.8700119                      0
+#> 5                     0                 0.8136812                      0
+#> 6                     0                 0.7676179                      0
+#> 7                     0                 0.7323872                      0
+#> 8                     0                 0.7068043                      0
+#>   Frequency Weighted Distance
+#> 3                    3.800462
+#> 4                    3.718461
+#> 5                    3.638213
+#> 6                    3.559825
+#> 7                    3.483411
+#> 8                    3.409092
 ```
 
 Summarize those per-cell descriptors to species level by aggregating
@@ -101,40 +101,40 @@ env_by_species <- lets.summaryze.cells(env_obj, env_cells, func = mean)
 
 head(env_by_species)
 #>                    Species Frequency Isolation (Min.) Isolation (1st Qu.)
-#> 1    Phyllomedusa araguari       NaN              NaN                 NaN
-#> 2 Phyllomedusa atelopoides       NaN              NaN                 NaN
-#> 3      Phyllomedusa ayeaye       NaN              NaN                 NaN
-#> 4      Phyllomedusa azurea       NaN              NaN                 NaN
-#> 5     Phyllomedusa bahiana       NaN              NaN                 NaN
-#> 6      Phyllomedusa baltea       NaN              NaN                 NaN
+#> 1    Phyllomedusa araguari   9.00000         97052.27            494018.8
+#> 2 Phyllomedusa atelopoides  25.38889        109736.78            593524.1
+#> 3      Phyllomedusa ayeaye  11.50000         99631.44            384047.4
+#> 4      Phyllomedusa azurea  11.59091        130717.35            462970.6
+#> 5     Phyllomedusa bahiana  11.91667        136522.70            463613.5
+#> 6      Phyllomedusa baltea  19.00000        110574.31            611182.1
 #>   Isolation (Median) Isolation (Mean) Isolation (3rd Qu.) Isolation (Max.)
-#> 1                NaN              NaN                 NaN              NaN
-#> 2                NaN              NaN                 NaN              NaN
-#> 3                NaN              NaN                 NaN              NaN
-#> 4                NaN              NaN                 NaN              NaN
-#> 5                NaN              NaN                 NaN              NaN
-#> 6                NaN              NaN                 NaN              NaN
+#> 1           767952.4         747035.8            923841.2          1500329
+#> 2          1109618.7        1175110.9           1714363.8          3008424
+#> 3           599271.8         667315.7            851729.1          1725300
+#> 4          1391519.0        1328709.9           2016286.4          3035828
+#> 5          1492534.7        1354451.4           2121714.6          2999208
+#> 6          1019632.7        1201164.4           1896221.5          2950964
 #>   Weighted Mean Distance to midpoint Mean Distance to midpoint
-#> 1                                NaN                       NaN
-#> 2                                NaN                       NaN
-#> 3                                NaN                       NaN
-#> 4                                NaN                       NaN
-#> 5                                NaN                       NaN
-#> 6                                NaN                       NaN
+#> 1                         -0.3188860                -0.1627780
+#> 2                         -0.6007348                -1.0114155
+#> 3                         -0.3310414                -0.1608610
+#> 4                         -0.4455612                -0.7009224
+#> 5                         -0.4520640                -0.6818815
+#> 6                         -0.6779813                -1.0585809
 #>   Minimum Zero Distance Minimum 10% Zero Distance Distance to MCP border
-#> 1                   NaN                       NaN                    NaN
-#> 2                   NaN                       NaN                    NaN
-#> 3                   NaN                       NaN                    NaN
-#> 4                   NaN                       NaN                    NaN
-#> 5                   NaN                       NaN                    NaN
-#> 6                   NaN                       NaN                    NaN
+#> 1             0.2581989                 0.9296124              0.2581989
+#> 2             0.3258642                 1.0476293              0.3258642
+#> 3             0.3116736                 0.9521703              0.3116736
+#> 4             0.3197515                 1.2125076              0.3197515
+#> 5             0.2641105                 1.2398626              0.2641105
+#> 6             0.2581989                 0.9893314              0.2581989
 #>   Frequency Weighted Distance
-#> 1                         NaN
-#> 2                         NaN
-#> 3                         NaN
-#> 4                         NaN
-#> 5                         NaN
-#> 6                         NaN
+#> 1                   0.7555036
+#> 2                   0.7967939
+#> 3                   0.7590072
+#> 4                   0.7875067
+#> 5                   0.7752855
+#> 6                   0.8278369
 ```
 
 We will use one metric from `env_by_species`(for example, “Weighted Mean

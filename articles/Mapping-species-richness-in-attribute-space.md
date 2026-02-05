@@ -70,27 +70,27 @@ including measures of centrality, isolation, and border proximity.
 ``` r
 attr_desc <- lets.attrcells(attr_obj, perc = 0.2)
 head(attr_desc)
-#>    Cell_attr Richness Weighted Mean Distance to midpoint
-#> 9          9        1                          -2.430272
-#> 16        16        1                          -2.263870
-#> 19        19        1                          -2.346087
-#> 46        46        1                          -2.110248
-#> 85        85        1                          -2.500111
-#> 86        86        1                          -2.599534
-#>    Mean Distance to midpoint Minimum Zero Distance Minimum 10% Zero Distance
-#> 9                  -2.470738                    NA                        NA
-#> 16                 -2.303493                    NA                        NA
-#> 19                 -2.382784                    NA                        NA
-#> 46                 -2.149809                    NA                        NA
-#> 85                 -2.526725                    NA                        NA
-#> 86                 -2.624668                    NA                        NA
-#>    Distance to MCP border Frequency Weighted Distance
-#> 9                0.000000                    2.552447
-#> 16               1.079741                    2.381929
-#> 19               1.542487                    2.453701
-#> 46               1.090687                    2.237495
-#> 85               2.487158                    2.591743
-#> 86               2.640287                    2.686964
+#>   Cell_attr Richness Weighted Mean Distance to midpoint
+#> 3         1        0                          -2.326864
+#> 4         2        0                          -2.249095
+#> 5         3        0                          -2.174679
+#> 6         4        0                          -2.103971
+#> 7         5        0                          -2.037358
+#> 8         6        0                          -1.975254
+#>   Mean Distance to midpoint Minimum Zero Distance Minimum 10% Zero Distance
+#> 3                 -2.353019                     0                 0.7875427
+#> 4                 -2.275839                     0                 0.7238193
+#> 5                 -2.202012                     0                 0.6742795
+#> 6                 -2.131885                     0                 0.6362405
+#> 7                 -2.065836                     0                 0.6116810
+#> 8                 -2.004267                     0                 0.5974101
+#>   Distance to MCP border Frequency Weighted Distance
+#> 3                      0                    2.401182
+#> 4                      0                    2.325796
+#> 5                      0                    2.253747
+#> 6                      0                    2.185353
+#> 7                      0                    2.120959
+#> 8                      0                    2.060930
 ```
 
 We can visualize these metrics using
@@ -116,26 +116,26 @@ across all cells occupied by each species using the
 attr_desc_by_sp <- lets.summaryze.cells(attr_obj, attr_desc, func = mean)
 head(attr_desc_by_sp)
 #>   Species Richness Weighted Mean Distance to midpoint Mean Distance to midpoint
-#> 1     sp1      NaN                                NaN                       NaN
-#> 2     sp2      NaN                                NaN                       NaN
-#> 3     sp3      NaN                                NaN                       NaN
-#> 4     sp4      NaN                                NaN                       NaN
-#> 5     sp5      NaN                                NaN                       NaN
-#> 6     sp6      NaN                                NaN                       NaN
+#> 1     sp1       16                        -0.50820192                -0.4896199
+#> 2     sp2       15                        -0.12253919                -0.1470435
+#> 3     sp3        5                        -0.84093748                -0.8298832
+#> 4     sp4        8                        -0.65172785                -0.6818160
+#> 5     sp5       14                        -0.07626174                -0.1050365
+#> 6     sp6        2                        -0.95462516                -0.9441664
 #>   Minimum Zero Distance Minimum 10% Zero Distance Distance to MCP border
-#> 1                   NaN                       NaN                    NaN
-#> 2                   NaN                       NaN                    NaN
-#> 3                   NaN                       NaN                    NaN
-#> 4                   NaN                       NaN                    NaN
-#> 5                   NaN                       NaN                    NaN
-#> 6                   NaN                       NaN                    NaN
+#> 1             0.4618802                 1.1195434              1.2701706
+#> 2             0.8164966                 1.2218190              1.5011107
+#> 3             0.3265986                 0.8310473              0.7745967
+#> 4             0.2309401                 0.9311691              1.0392305
+#> 5             0.8082904                 1.2360965              1.6041613
+#> 6             0.2309401                 0.7661288              0.6733003
 #>   Frequency Weighted Distance
-#> 1                         NaN
-#> 2                         NaN
-#> 3                         NaN
-#> 4                         NaN
-#> 5                         NaN
-#> 6                         NaN
+#> 1                   0.8225743
+#> 2                   0.6921972
+#> 3                   1.0446166
+#> 4                   0.9069837
+#> 5                   0.6857976
+#> 6                   1.1319803
 ```
 
 This produces a data frame in which each row corresponds to a species,

@@ -25,7 +25,7 @@ descriptors include:
 ## Usage
 
 ``` r
-lets.attrcells(x, perc = 0.2)
+lets.attrcells(x, perc = 0.2, remove.cells = FALSE)
 ```
 
 ## Arguments
@@ -48,6 +48,10 @@ lets.attrcells(x, perc = 0.2)
 
   Numeric in (0, 1\]; fraction used in the robust border metric (mean of
   the *n* smallest zero-richness distances). Default `0.2`.
+
+- remove.cells:
+
+  Logical. If 'TRUE', remove empty cells from the results.
 
 ## Value
 

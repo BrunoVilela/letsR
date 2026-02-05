@@ -191,41 +191,41 @@ environmental borders.
 ``` r
 out <- lets.envcells(res)  # perc controls the robust border metric
 head(out)
-#>     Cell_env Frequency Isolation (Min.) Isolation (1st Qu.) Isolation (Median)
-#> 269      269         1               NA                  NA                 NA
-#> 387      387         1               NA                  NA                 NA
-#> 389      389         1               NA                  NA                 NA
-#> 417      417         1               NA                  NA                 NA
-#> 418      418         1               NA                  NA                 NA
-#> 419      419         3         110575.8            110891.1           111206.5
-#>     Isolation (Mean) Isolation (3rd Qu.) Isolation (Max.)
-#> 269               NA                  NA               NA
-#> 387               NA                  NA               NA
-#> 389               NA                  NA               NA
-#> 417               NA                  NA               NA
-#> 418               NA                  NA               NA
-#> 419         126211.2            134028.9         156851.3
-#>     Weighted Mean Distance to midpoint Mean Distance to midpoint
-#> 269                          -3.262939                 -3.410333
-#> 387                          -2.245394                 -2.356311
-#> 389                          -2.326724                 -2.517317
-#> 417                          -2.005706                 -2.125599
-#> 418                          -2.038854                 -2.204236
-#> 419                          -2.096356                 -2.302793
-#>     Minimum Zero Distance Minimum 10% Zero Distance Distance to MCP border
-#> 269                    NA                        NA                      0
-#> 387                    NA                        NA                      0
-#> 389                    NA                        NA                      0
-#> 417                    NA                        NA                      0
-#> 418                    NA                        NA                      0
-#> 419                    NA                        NA                      0
-#>     Frequency Weighted Distance
-#> 269                    3.329758
-#> 387                    2.357255
-#> 389                    2.408900
-#> 417                    2.130913
-#> 418                    2.143140
-#> 419                    2.187567
+#>   Cell_env Frequency Isolation (Min.) Isolation (1st Qu.) Isolation (Median)
+#> 3        1         0               NA                  NA                 NA
+#> 4        2         0               NA                  NA                 NA
+#> 5        3         0               NA                  NA                 NA
+#> 6        4         0               NA                  NA                 NA
+#> 7        5         0               NA                  NA                 NA
+#> 8        6         0               NA                  NA                 NA
+#>   Isolation (Mean) Isolation (3rd Qu.) Isolation (Max.)
+#> 3               NA                  NA               NA
+#> 4               NA                  NA               NA
+#> 5               NA                  NA               NA
+#> 6               NA                  NA               NA
+#> 7               NA                  NA               NA
+#> 8               NA                  NA               NA
+#>   Weighted Mean Distance to midpoint Mean Distance to midpoint
+#> 3                          -3.730908                 -3.457246
+#> 4                          -3.646836                 -3.382386
+#> 5                          -3.564523                 -3.309862
+#> 6                          -3.484092                 -3.239832
+#> 7                          -3.405677                 -3.172460
+#> 8                          -3.329421                 -3.107918
+#>   Minimum Zero Distance Minimum 10% Zero Distance Distance to MCP border
+#> 3                     0                 0.9362266                      0
+#> 4                     0                 0.8700119                      0
+#> 5                     0                 0.8136812                      0
+#> 6                     0                 0.7676179                      0
+#> 7                     0                 0.7323872                      0
+#> 8                     0                 0.7068043                      0
+#>   Frequency Weighted Distance
+#> 3                    3.800462
+#> 4                    3.718461
+#> 5                    3.638213
+#> 6                    3.559825
+#> 7                    3.483411
+#> 8                    3.409092
 ```
 
 Key columns are:
@@ -275,10 +275,10 @@ richness.
 centrality <- out[["Weighted Mean Distance to midpoint"]]   # larger = more central
 rich_env   <- rowSums(res$Presence_and_Absence_Matrix_env[, -(1:3), drop = FALSE])
 
-# Remove zero-richness cells
-keep <- rich_env > 0
+# Mantain cells without zero
+keep <- res$Presence_and_Absence_Matrix_env[, 1]
 centrality <- centrality[keep]
-rich_env   <- rich_env[keep]
+
 
 # Plot relationship
 plot(centrality, rich_env,
