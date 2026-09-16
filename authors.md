@@ -11,7 +11,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/macroecology/letsR/blob/letsR_6.1/inst/CITATION)
+[`inst/CITATION`](https://github.com/macroecology/letsR/blob/master/inst/CITATION)
 
 Vilela B, Villalobos F (2015). “letsR: a new R package for data handling
 and analysis in macroecology.” *Methods in Ecology and Evolution*,
