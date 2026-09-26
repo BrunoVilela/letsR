@@ -22,8 +22,13 @@
 #' @export
 
 lets.save <- function(pam, ...) {
-    pam$Richness_Raster <- terra::wrap(pam$Richness_Raster)
-    save(pam, ...)  
+  
+  if (!is.null(pam$Richness_Raster) &&
+      inherits(pam$Richness_Raster, "PackedSpatRaster")) {
+    pam$Richness_Raster <- terra::unwrap(pam$Richness_Raster)
+  }
+  
+  save(pam, ...)
 }
 
 
@@ -53,6 +58,12 @@ lets.load <- function(file) {
   e <- base::new.env()
   name_file <- load(file, envir = e)
   pam <- base::get(name_file, envir = e)
-  pam$Richness_Raster <- terra::unwrap(pam$Richness_Raster)
-  return(pam)
+  
+  if (!is.null(pam$Richness_Raster) &&
+      inherits(pam$Richness_Raster, "PackedSpatRaster")) {
+    pam$Richness_Raster <- terra::unwrap(pam$Richness_Raster)
+  }
+  
+  pam
 }
+
