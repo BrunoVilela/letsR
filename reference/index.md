@@ -75,6 +75,8 @@
   within a user's grid shapefile (beta version)
 - [`lets.presab.points()`](https://brunovilela.github.io/letsR/reference/lets.presab.points.md)
   : Create a presence-absence matrix based on species' point occurrences
+- [`lets.range()`](https://brunovilela.github.io/letsR/reference/lets.range.md)
+  : Estimate species geographic ranges from occurrence records
 - [`lets.rangesize()`](https://brunovilela.github.io/letsR/reference/lets.rangesize.md)
   : Compute species' geographic range sizes
 - [`lets.save()`](https://brunovilela.github.io/letsR/reference/lets.save.md)
