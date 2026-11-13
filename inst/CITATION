@@ -1,15 +1,43 @@
-citHeader("To cite letsR in publications use:")
+citHeader("To cite letsR in publications, please cite both papers:")
 
 bibentry(
-  bibtype    = "article",
-  title    = "letsR: a new R package for data handling and               analysis in macroecology",
-  author   = c(person("Bruno", "Vilela"),
-               person("Fabricio", "Villalobos")),
-  journal  = "Methods in Ecology and Evolution",
-  year     = 2015,
-  volume   = 6,
-  number   = 10,
-  pages    = 1229-1234,
-  url      = "https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.12401",
-  doi      = "10.1111/2041-210X.12401"
+  bibtype = "Article",
+  title = paste(
+    "letsR: a new R package for data handling",
+    "and analysis in macroecology"
+  ),
+  author = c(
+    person("Bruno", "Vilela"),
+    person("Fabricio", "Villalobos")
+  ),
+  journal = "Methods in Ecology and Evolution",
+  year = "2015",
+  volume = "6",
+  number = "10",
+  pages = "1229-1234",
+  doi = "10.1111/2041-210X.12401"
+)
+
+bibentry(
+  bibtype = "Article",
+  title = paste(
+    "Mapping diversity through geographical,",
+    "environmental and attribute spaces"
+  ),
+  author = c(
+    person("Bruno", "Vilela"),
+    person("Bruna M.", "Farina"),
+    person("Ricardo", "Dobrovolski"),
+    person("Sidney F.", "Gouveia"),
+    person("José Alexandre F.", "Diniz-Filho"),
+    person("Thiago F.", "Rangel"),
+    person("Trevor S.", "Fristoe"),
+    person("Carlos", "Calderón del Cid"),
+    person("Marco Túlio P.", "Coelho"),
+    person("Catherine H.", "Graham"),
+    person("Fabricio", "Villalobos")
+  ),
+  journal = "Methods in Ecology and Evolution",
+  year = "2026",
+  doi = "10.1111/2041-210X.70421"
 )
