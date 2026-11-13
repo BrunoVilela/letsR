@@ -111,10 +111,6 @@ study_area <- rnaturalearth::ne_countries(
   scale = "medium",
   returnclass = "sf"
 )
-#> The rnaturalearthdata package needs to be installed.
-#> Installing the rnaturalearthdata package.
-#> Installing package into '/home/runner/work/_temp/Library'
-#> (as 'lib' is unspecified)
 study_area <- study_area["admin"]
 
 occ_points <- st_as_sf(

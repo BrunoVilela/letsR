@@ -25,7 +25,7 @@
 - [`lets.classvar()`](https://brunovilela.github.io/letsR/reference/lets.classvar.md)
   : Frequency distribution of a variable within a species' range
 - [`lets.correl()`](https://brunovilela.github.io/letsR/reference/lets.correl.md)
-  : Compute correlogram based on the Moran's I index
+  : Spatial correlogram based on Moran's I
 - [`lets.distmat()`](https://brunovilela.github.io/letsR/reference/lets.distmat.md)
   : Compute a geographic distance matrix
 - [`lets.envcells()`](https://brunovilela.github.io/letsR/reference/lets.envcells.md)
