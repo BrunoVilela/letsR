@@ -1,40 +1,165 @@
-#' Compute correlogram based on the Moran's I index
-#' 
-#' @author Bruno Vilela, Fabricio Villalobos, Lucas Jardim & Jose Alexandre Diniz-Filho
-#' 
-#' @description Computes the Moran's I correlogram of a single or multiple variables.
+#' Spatial correlogram based on Moran's I
 #'
-#' @param x A single numeric variable in vector format or multiple variables in matrix format 
-#' (as columns). 
-#' @param y A distance matrix of class \code{matrix} or \code{dist}.
-#' @param z The number of distance classes to use in the correlogram.
-#' @param equidistant Logical, if \code{TRUE} the classes will be equidistant.
-#' If \code{FALSE} the classes will have equal number of observations.
-#' @param plot Logical, if \code{TRUE} the correlogram will be plotted. 
-#' 
-#' @return Returns a matrix with the Moran's I Observed value, Confidence Interval (95%) 
-#' and Expected value. Also the p value of the randomization test, the mean distance 
-#' between classes, and the number of observations.   
-#' @references Sokal, R.R. & Oden, N.L. (1978) Spatial autocorrelation in biology.
-#' 1. Methodology. Biological Journal of the Linnean Society, 10, 199-228.
-#' @references Sokal, R.R. & Oden, N.L. (1978) Spatial autocorrelation in biology.
-#' 2. Some biological implications and four applications of evolutionary and
-#' ecological interest. Biological Journal of the Linnean Society, 10, 229-249.
-#' 
-#' @examples \dontrun{
-#' data(PAM)
-#' data(IUCN)
-#' 
-#' # Spatial autocorrelation in description year (species level)
-#' midpoint <- lets.midpoint(PAM)
-#' distan <- lets.distmat(midpoint[, 2:3])
-#' moran <- lets.correl(IUCN$Description, distan, 12,
-#'                      equidistant = FALSE, 
-#'                      plot = TRUE)
-#'                      
+#' @description
+#' Computes spatial correlograms using Moran's I to quantify spatial
+#' autocorrelation across geographic distance classes. The function
+#' accepts a single numeric variable or a matrix containing multiple
+#' variables and calculates spatial autocorrelation at different
+#' spatial scales.
+#'
+#' @author Bruno Vilela, Fabricio Villalobos, Lucas Jardim &
+#'   Jose Alexandre Diniz-Filho
+#'
+#' @param x A numeric vector containing the values of a variable
+#'   measured at different geographic locations, or a numeric matrix
+#'   with variables in columns and locations in rows. The order of
+#'   locations must correspond to the distance matrix supplied in `y`.
+#'
+#' @param y A geographic distance matrix of class `matrix` or `dist`.
+#'   Distances must correspond to the locations represented in `x`.
+#'   Distances calculated using [lets.distmat()] are expressed in meters
+#'   when geographic coordinates are supplied.
+#'
+#' @param z Integer specifying the number of geographic distance
+#'   classes used to construct the correlogram. Distance classes
+#'   containing insufficient observations are omitted.
+#'
+#' @param equidistant Logical. If `TRUE`, distance classes have equal
+#'   widths. If `FALSE` (default), classes are defined using quantiles
+#'   of pairwise distances, producing approximately equal numbers of
+#'   location pairs per class. Repeated distances may result in unequal
+#'   class sizes. Currently, this argument is only applied when `x`
+#'   is a single variable.
+#'
+#' @param plot Logical. If `TRUE` (default), plots the spatial
+#'   correlogram showing Moran's I across geographic distance classes.
+#'
+#' @return
+#' A numeric matrix containing the results for each geographic
+#' distance class.
+#'
+#' When `x` is a numeric vector, the matrix contains:
+#'
+#' \describe{
+#'   \item{Observed}{Observed Moran's I for each distance class.}
+#'   \item{Confidence_Interval_(95\%)}{Half-width of the approximate
+#'     95\% interval around the observed Moran's I, calculated as
+#'     1.96 times its estimated standard deviation.}
+#'   \item{Expected_value}{Expected Moran's I under the null
+#'     hypothesis of spatial randomness.}
+#'   \item{p_value}{Two-sided p-value calculated using a normal
+#'     approximation to the null distribution.}
+#'   \item{Mean_Distance}{Midpoint of the distance-class boundaries,
+#'     expressed in the same units as `y`.}
+#'   \item{Count}{Number of ordered location pairs included in
+#'     the distance class.}
 #' }
-#' 
+#'
+#' When `x` contains multiple variables, the function returns:
+#'
+#' \describe{
+#'   \item{Observed}{Mean observed Moran's I across variables.}
+#'   \item{Standard_Deviation}{Standard deviation of Moran's I
+#'     across variables.}
+#'   \item{Expected_value}{Mean expected Moran's I across variables.}
+#'   \item{Mean_Distance}{Mean distance-class midpoint across variables.}
+#'   \item{Count}{Mean number of ordered location pairs across variables.}
+#' }
+#'
+#' @details
+#' Moran's I measures the degree of spatial autocorrelation in a
+#' variable. Positive values indicate that locations separated by
+#' a given geographic distance tend to have similar values, whereas
+#' negative values indicate spatial dissimilarity. Values close to
+#' the expected Moran's I indicate little evidence of spatial
+#' autocorrelation at that distance.
+#'
+#' The geographic distance matrix is divided into `z` distance
+#' classes. For each class, a binary spatial weights matrix is
+#' constructed, assigning a weight of one to pairs of locations
+#' within the corresponding distance interval and zero otherwise.
+#' Moran's I is then calculated independently for each class.
+#'
+#' The expected value is calculated as -1 / (n - 1), where `n`
+#' is the number of locations having at least one connection
+#' within the distance class. The approximate 95% interval is
+#' obtained from the analytical variance of Moran's I under
+#' randomization assumptions. P-values are calculated using
+#' a normal approximation, without Monte Carlo permutations.
+#'
+#' When multiple variables are provided, Moran's I is computed
+#' separately for each variable and summarized by its mean and
+#' standard deviation across variables. This standard deviation
+#' describes variation among variables and should not be interpreted
+#' as inferential uncertainty around the mean.
+#'
+#' Spatial correlograms can be used to investigate the spatial
+#' structure of ecological and environmental variables, identify
+#' characteristic distances of spatial autocorrelation, and compare
+#' broad-scale spatial patterns among variables.
+#'
+#' Results depend on the number and definition of distance classes,
+#' the geographic distribution of sampling locations, and the
+#' spatial structure of the analyzed variable. Distance classes
+#' containing too few connected locations may produce undefined
+#' statistics and are excluded from the output.
+#'
+#' @references
+#' Sokal, R. R. & Oden, N. L. (1978). Spatial autocorrelation in
+#' biology. 1. Methodology. Biological Journal of the Linnean
+#' Society, 10, 199-228.
+#'
+#' Sokal, R. R. & Oden, N. L. (1978). Spatial autocorrelation in
+#' biology. 2. Some biological implications and four applications
+#' of evolutionary and ecological interest. Biological Journal
+#' of the Linnean Society, 10, 229-249.
+#'
+#' @seealso [lets.distmat()]
+#'
+#' @examples
+#' # Generate geographic coordinates
+#' coords <- as.matrix(expand.grid(
+#'   longitude = seq(-50, -46, length.out = 8),
+#'   latitude = seq(-18, -14, length.out = 8)
+#' ))
+#'
+#' # Calculate geographic distances in meters
+#' dist_mat <- lets.distmat(coords)
+#'
+#' # Create a spatially structured variable
+#' set.seed(123)
+#' x <- coords[, 1] + coords[, 2] +
+#'   rnorm(nrow(coords), sd = 0.5)
+#'
+#' # Moran's I correlogram
+#' result <- lets.correl(
+#'   x,
+#'   dist_mat,
+#'   z = 6,
+#'   equidistant = FALSE,
+#'   plot = TRUE
+#' )
+#'
+#' print(result)
+#'
+#' # Compare multiple variables
+#' x2 <- rnorm(nrow(coords))
+#' variables <- cbind(
+#'   Spatial_gradient = x,
+#'   Random_variable = x2
+#' )
+#'
+#' result_multi <- lets.correl(
+#'   variables,
+#'   dist_mat,
+#'   z = 6,
+#'   plot = FALSE
+#' )
+#'
+#' print(result_multi)
+#'
 #' @export
+
 
 
 
