@@ -48,14 +48,20 @@ import(graphics)
 import(sf)
 import(stats)
 import(terra)
-importFrom(grDevices,colorRampPalette)
-importFrom(grDevices,dev.new)
-importFrom(grDevices,dev.off)
-importFrom(graphics,abline)
-importFrom(graphics,par)
-importFrom(graphics,plot.new)
-importFrom(graphics,segments)
+importFrom(grDevices,
+  colorRampPalette,
+  dev.new,
+  dev.off
+)
+importFrom(graphics,
+  abline,
+  par,
+  plot.new,
+  segments
+)
 importFrom(methods,is)
-importFrom(stats,dist)
-importFrom(stats,pnorm)
-importFrom(stats,sd)
+importFrom(stats,
+  dist,
+  pnorm,
+  sd
+)

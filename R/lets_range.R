@@ -110,7 +110,9 @@
 #'   occs,
 #'   crop_shp = land,
 #'   intersection = FALSE,
-#'   buf = 500000
+#'   buf = 100000,
+#'   eps_m = 1000000, 
+#'   ratio = 1
 #' )
 #' }
 #'
